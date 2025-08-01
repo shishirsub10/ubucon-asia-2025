@@ -24,5 +24,5 @@ func TestFetchURLContent_Success(t *testing.T) {
 func TestFetchURLContent_InvalidURL(t *testing.T) {
 	_, err := FetchURLContent("http://invalid-url.test.does.not-exists")
 	require.Error(t, err)
-	require.Contains(t, err.Error(), "device or resource busy")
+	require.Contains(t, err.Error(), "no such host")
 }
