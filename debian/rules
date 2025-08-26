@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
 export GOCACHE=$(CURDIR)/.gocache
+export CGO_ENABLED=0
 
 %:
 	dh $@ --builddirectory=_build --buildsystem=golang --with=golang
