@@ -9,9 +9,9 @@ import (
 
 // Ping is the HTTP handler that calls the ping function
 func Ping(c *gin.Context) {
-	ip := c.Query("ip")
+	ip := c.PostForm("ip")
 	if ip == "" {
-		c.String(http.StatusBadRequest, "ip query parameter is required")
+		c.String(http.StatusBadRequest, "ip form parameter is required")
 		return
 	}
 
@@ -22,4 +22,22 @@ func Ping(c *gin.Context) {
 	}
 
 	c.String(http.StatusOK, output)
+}
+
+func PingForm(c *gin.Context) {
+	c.Header("Content-Type", "text/html")
+	c.String(http.StatusOK, `
+		<!DOCTYPE html>
+		<html>
+		<head><title>Ping</title></head>
+		<body>
+			<h1>Ping Tool</h1>
+			<form action="/ping" method="post">
+				<label for="ip">IP address:</label>
+				<input type="text" id="ip" name="ip" required>
+				<button type="submit">Ping</button>
+			</form>
+		</body>
+		</html>
+	`)
 }
