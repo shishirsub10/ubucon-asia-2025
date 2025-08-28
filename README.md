@@ -26,6 +26,22 @@ The goal of the workshop is to demonstrate how to limit the attack surface of ap
 - Go 1.20+ (for building from source)
 - Linux (recommended for AppArmor demos)
 
+### Quick Start with Sample Animal Pictures
+
+This repository includes a folder named `sample_pictures` with a few animal images for demo purposes.
+
+After cloning, you can copy these images to your `~/animal_pictures` directory to see the gallery in action right away:
+
+```sh
+git clone https://github.com/shishirsub10/ubucon-asia-2025.git
+cd ubucon-asia-2025
+mkdir -p ~/animal_pictures
+cp sample_pictures/* ~/animal_pictures/
+go build -o ubucon-asia-2025
+```
+
+Now run the app and visit [http://localhost:8080](http://localhost:8080) to see the sample images in the gallery!
+
 ### Build from Source
 
 ```sh
