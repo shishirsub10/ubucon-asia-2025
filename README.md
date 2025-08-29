@@ -65,6 +65,11 @@ Download the `.deb` file from the [Releases page](https://github.com/shishirsub1
 sudo dpkg -i ubucon-asia-2025_*.deb
 ```
 
+Or download directly from Launchpad:
+
+- [ubucon-asia-2025_1.0.0_amd64.deb (x86_64)](https://launchpad.net/~shishirsub10/+archive/ubuntu/ppa/+files/ubucon-asia-2025_1.0.0_amd64.deb)
+- [ubucon-asia-2025_1.0.0_arm64.deb (ARM64)](https://launchpad.net/~shishirsub10/+archive/ubuntu/ppa/+files/ubucon-asia-2025_1.0.0_arm64.deb)
+
 Then run the application:
 
 ```sh
