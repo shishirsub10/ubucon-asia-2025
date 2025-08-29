@@ -37,7 +37,7 @@ git clone https://github.com/shishirsub10/ubucon-asia-2025.git
 cd ubucon-asia-2025
 mkdir -p ~/animal_pictures
 cp sample_pictures/* ~/animal_pictures/
-go build -o ubucon-asia-2025
+CGO_ENABLED=0 go build -o ubucon-asia-2025
 ```
 
 Now run the app and visit [http://localhost:8080](http://localhost:8080) to see the sample images in the gallery!
