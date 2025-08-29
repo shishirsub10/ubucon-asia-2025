@@ -42,19 +42,36 @@ go build -o ubucon-asia-2025
 
 Now run the app and visit [http://localhost:8080](http://localhost:8080) to see the sample images in the gallery!
 
-### Build from Source
+---
+
+## Running the Application
+
+You can run the application in two ways:
+
+### 1. Using the Prebuilt Binary
+
+Download the prebuilt binary from the [Releases page](https://github.com/shishirsub10/ubucon-asia-2025/releases), make it executable, and run:
 
 ```sh
-git clone https://github.com/shishirsub10/ubucon-asia-2025.git
-cd ubucon-asia-2025
-go build -o ubucon-asia-2025
-```
-
-### Run Locally
-
-```sh
+chmod +x ubucon-asia-2025
 ./ubucon-asia-2025
 ```
+
+### 2. Installing the `.deb` Package
+
+Download the `.deb` file from the [Releases page](https://github.com/shishirsub10/ubucon-asia-2025/releases) and install it using `dpkg`:
+
+```sh
+sudo dpkg -i ubucon-asia-2025_*.deb
+```
+
+Then run the application:
+
+```sh
+ubucon-asia-2025
+```
+
+---
 
 By default, the server runs on `localhost:8080`.  
 Visit [http://localhost:8080](http://localhost:8080) in your browser.
@@ -65,14 +82,45 @@ Visit [http://localhost:8080](http://localhost:8080) in your browser.
 - You can change the port and host with flags:
   ```sh
   ./ubucon-asia-2025 -host 0.0.0.0 -port 8081
+  # or, if installed via deb:
+  ubucon-asia-2025 -host 0.0.0.0 -port 8081
   ```
 
 ---
 
-## Prebuilt Binary
+## Cleanup
 
-A prebuilt binary is available on the [Releases page](https://github.com/shishirsub10/ubucon-asia-2025/releases).  
-Download, and run as shown above.
+Depending on how you installed or ran the application, use the following steps to clean up:
+
+### If you used the prebuilt binary
+
+Simply remove the binary from your directory:
+
+```sh
+rm ./ubucon-asia-2025
+```
+
+### If you installed using the `.deb` package
+
+Remove the package using apt:
+
+```sh
+sudo apt remove ubucon-asia-2025
+```
+
+If you want to manually remove the binary (if it still exists):
+
+```sh
+sudo rm /usr/local/bin/ubucon-asia-2025
+```
+
+### Remove sample images (optional)
+
+If you want to remove the sample images from your home directory:
+
+```sh
+rm -rf ~/animal_pictures
+```
 
 ---
 
@@ -80,3 +128,4 @@ Download, and run as shown above.
 
 This app is intentionally insecure to demonstrate how [AppArmor](https://apparmor.net/) can be used to confine and protect vulnerable applications.  
 **Do not use this application outside of a controlled workshop or test environment.**
+
