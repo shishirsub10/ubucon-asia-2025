@@ -1,0 +1,32 @@
+abi <abi/4.0>,
+
+#include <tunables/global>
+
+profile ubucon-asia-2025 /usr/bin/ubucon-asia-2025 {
+  #include <abstractions/base>
+
+  file /usr/bin/ubucon-asia-2025 r,
+  file /proc/sys/net/core/somaxconn r,
+  network (create,setopt,bind,listen,accept,getattr,receive,send) inet stream,
+
+  # network access for dns
+  network inet dgram,
+  network inet6 dgram,
+
+  file @{HOME}/animal_pictures{/,/**} rw,
+
+  # file read for dns
+  file /run/systemd/resolve/stub-resolv.conf r,
+  file /etc/nsswitch.conf r,
+  file /etc/hosts r,
+
+  # Process spawn
+  /usr/bin/dash Cx -> sh-only-ping,
+  profile sh-only-ping {
+    #include<abstractions/base>
+    
+    /usr/bin/ping Ux,
+    file /usr/bin/dash rm,
+  }
+
+}
